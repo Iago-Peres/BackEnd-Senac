@@ -55,7 +55,7 @@ var Guerreiro = /** @class */ (function () {
         }
         else if (monstro1.acerto.valueOf() < guerreiro1.armadura.valueOf()) {
             //exibe se monstro1 errou o atacar
-            console.log("".concat(monstro1.nome, " errou o atacar!"));
+            console.log("".concat(monstro1.nome, " errou o ataque!"));
         }
         exibirMenuDeAcoes();
     };
@@ -111,7 +111,7 @@ var Monstro = /** @class */ (function () {
         }
         else if (guerreiro1.acerto.valueOf() < monstro1.armadura.valueOf()) {
             //exibe se guerreiro1 errou o atacar
-            console.log("".concat(guerreiro1.nome, " errou o atacar!"));
+            console.log("".concat(guerreiro1.nome, " errou o ataque!"));
             var pausa = readlineSync.question("");
             console.clear();
             exibirMenuDeAcoes();

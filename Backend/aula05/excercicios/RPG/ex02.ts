@@ -79,7 +79,7 @@ class Guerreiro {
       console.log(`${guerreiro1.nome} HP: (${guerreiro1.saudeAtual.valueOf()} / ${guerreiro1.saudeMax.valueOf()})`);
     } else if (monstro1.acerto.valueOf() < guerreiro1.armadura.valueOf()) {
       //exibe se monstro1 errou o atacar
-      console.log(`${monstro1.nome} errou o atacar!`);
+      console.log(`${monstro1.nome} errou o ataque!`);
     }
     exibirMenuDeAcoes();
   }
@@ -148,7 +148,7 @@ class Monstro {
       console.log(`${monstro1.nome} HP: (${monstro1.saudeAtual.valueOf()} / ${monstro1.saudeMax.valueOf()})`);
     } else if (guerreiro1.acerto.valueOf() < monstro1.armadura.valueOf()) {
       //exibe se guerreiro1 errou o atacar
-      console.log(`${guerreiro1.nome} errou o atacar!`);
+      console.log(`${guerreiro1.nome} errou o ataque!`);
       let pausa: String = readlineSync.question("");
       console.clear();
       exibirMenuDeAcoes();
