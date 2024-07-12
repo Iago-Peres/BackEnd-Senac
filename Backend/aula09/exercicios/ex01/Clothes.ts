@@ -1,6 +1,6 @@
 import { products } from "./products";
 
-export class Eletronics implements products {
+export class Clothes implements products {
 
     type: string;
     price: number;

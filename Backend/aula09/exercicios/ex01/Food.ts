@@ -14,31 +14,8 @@ export class Food implements products {
         this.wheight = wheight;
     }
 
-    getType(): string {
-        return this.type;
-    }
-    setType(type: string): string {
-        return this.type = type;
+    productTotalValue(quantity: number): void {
+        console.log(`total buy price: ${quantity * this.price}`)
     }
 
-    getPrice(): number {
-        return this.price;
-    }
-    setPrice(price: number): number {
-        return this.price = price;
-    }
-
-    getName(): string {
-        return this.name;
-    }
-    setName(name: string): string {
-        return this.name = name
-    }
-
-    getWheight(): number {
-        return this.wheight;
-    }
-    setWheight(wheight: number): number {
-        return this.wheight = wheight;
-    }
 }
