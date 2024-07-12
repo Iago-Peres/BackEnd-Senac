@@ -6,17 +6,15 @@ export class Alimentos implements Produto{
     nome: string;
     peso: number;
 
-    constructor(tipo: string, preco: number, nome: string, peso: number){
+    constructor(tipo: string, nome: string, peso: number){
         this.tipo = tipo;
-        this.preco = preco;
         this.nome = nome;
         this.peso = peso;
     }
 
     calcularValorTotal(quantidade: number): number {
-        this.peso = quantidade * 0.2;
-        let valorTotal:number = this.peso * this.preco;
-        return valorTotal;
+        this.preco = this.peso * 1.5 
+        return this.preco;
     }
 
 }

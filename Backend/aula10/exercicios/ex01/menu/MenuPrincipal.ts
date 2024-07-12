@@ -52,6 +52,6 @@ class MenuPrincipal {
 
 }
 
-let alimento1:Alimentos = new Alimentos("legume",10,"batata",1);
+let alimento1:Alimentos = new Alimentos("legume","batata",2);
 let eletronico1:Eletronicos = new Eletronicos("perifericos",100,"teclado",1);
 let roupa1:Roupas = new Roupas("roupaDeCima",100,"camiseta", 1);
