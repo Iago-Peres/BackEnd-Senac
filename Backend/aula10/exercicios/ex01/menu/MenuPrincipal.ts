@@ -50,6 +50,16 @@ class MenuPrincipal {
         console.log(`3- ${roupa1.nome}| preco: ${roupa1.calcularValorTotal}`);
         let opcao = parseInt(readlineSync.question("selecionar produto:"));
         
+        while(opcao <=3){
+            switch (opcao) {
+                case 1:
+                    
+                    break;
+            
+                default:
+                    break;
+            }
+        }
     }
 
 }
