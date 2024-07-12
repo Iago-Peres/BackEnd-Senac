@@ -48,6 +48,8 @@ class MenuPrincipal {
         console.log(`1- ${alimento1.nome}| preco: ${alimento1.calcularValorTotal}`);
         console.log(`2- ${eletronico1.nome}| preco: ${eletronico1.calcularValorTotal}`);
         console.log(`3- ${roupa1.nome}| preco: ${roupa1.calcularValorTotal}`);
+        let opcao = parseInt(readlineSync.question("selecionar produto:"));
+        
     }
 
 }
