@@ -5,11 +5,13 @@ var readlineSync = require("readline-sync");
 var Alimentos_1 = require("../produtos/Alimentos");
 var Eletronicos_1 = require("../produtos/Eletronicos");
 var Roupas_1 = require("../produtos/Roupas");
+var MenuPagamento_1 = require("../metodoPagamentoMenu/MenuPagamento");
 var MenuPrincipal = /** @class */ (function () {
     function MenuPrincipal() {
         this.carrinhoIndex = 0;
         this.carrinho = [];
         this.carrinhoPrecos = [];
+        this.index = 0;
     }
     MenuPrincipal.prototype.mostrarMenuPrincipal = function () {
         console.log("1- comprar.");
@@ -20,8 +22,9 @@ var MenuPrincipal = /** @class */ (function () {
     MenuPrincipal.prototype.opcaoMenuPrincipal = function () {
         console.clear();
         this.mostrarMenuPrincipal();
-        this.opcao = Number(readlineSync.question("escolha uma opcao:"));
-        switch (this.opcao) {
+        var opcaoMenu = 0;
+        opcaoMenu = Number(readlineSync.question("escolha uma opcao:"));
+        switch (opcaoMenu) {
             case 1:
                 this.comprar();
                 break;
@@ -35,65 +38,75 @@ var MenuPrincipal = /** @class */ (function () {
                 console.log("Saindo...");
                 process.exit(0);
             default:
+                this.opcaoMenuPrincipal();
                 break;
         }
     };
     MenuPrincipal.prototype.comprar = function () {
-        this.opcao;
-        while (this.opcao != 4) {
+        var opcaoCompra = 0;
+        while (opcaoCompra < 4) {
             console.clear();
             console.log("1- ".concat(alimento1.nome, "| preco: ").concat(alimento1.calcularValorTotal().valueOf()));
             console.log("2- ".concat(eletronico1.nome, "| preco: ").concat(eletronico1.calcularValorTotal().valueOf()));
             console.log("3- ".concat(roupa1.nome, "| preco: ").concat(roupa1.calcularValorTotal().valueOf()));
             console.log("4- voltar.\n");
-            this.opcao = Number(readlineSync.question("selecionar produto:"));
-            switch (this.opcao) {
+            opcaoCompra = Number(readlineSync.question("selecionar produto:"));
+            switch (opcaoCompra) {
                 case 1:
-                    this.quantidadeItem1 = Number(readlineSync.question("quantos comprar:"));
-                    for (var index = 0; index < this.quantidadeItem1; index++) {
-                        this.carrinho[index] = alimento1.nome;
-                        this.carrinhoPrecos[index] = alimento1.calcularValorTotal().valueOf();
-                    }
-                    console.log("".concat(this.quantidadeItem1, " ").concat(alimento1.nome, " adicionado(s) ao carrinho."));
+                    this.carrinho[this.index] = alimento1.nome;
+                    this.carrinhoPrecos[this.index] = Number(alimento1.calcularValorTotal().valueOf());
+                    this.index++;
+                    console.log("".concat(alimento1.nome, " adicionado(a) ao carrinho."));
                     var pausa = readlineSync.question("");
                     break;
                 case 2:
-                    this.quantidadeItem2 = Number(readlineSync.question("quantos comprar:"));
-                    for (var index = 0; index < this.quantidadeItem2; index++) {
-                        this.carrinho[index] = eletronico1.nome;
-                        this.carrinhoPrecos[index] = eletronico1.calcularValorTotal().valueOf();
-                    }
-                    console.log("".concat(this.quantidadeItem2, " ").concat(eletronico1.nome, " adicionado(s) ao carrinho."));
+                    this.carrinho[this.index] = eletronico1.nome;
+                    this.carrinhoPrecos[this.index] = Number(eletronico1.calcularValorTotal().valueOf());
+                    this.index++;
+                    console.log("".concat(eletronico1.nome, " adicionado(a) ao carrinho."));
                     pausa = readlineSync.question("");
                     break;
                 case 3:
-                    this.quantidadeItem3 = Number(readlineSync.question("quantos comprar:"));
-                    for (var index = 0; index < this.quantidadeItem3; index++) {
-                        this.carrinho[index] = roupa1.nome;
-                        this.carrinhoPrecos[index] = roupa1.calcularValorTotal().valueOf();
-                    }
-                    console.log("".concat(this.quantidadeItem3, " ").concat(roupa1.nome, " adicionado(s) ao carrinho."));
+                    this.carrinho[this.index] = roupa1.nome;
+                    this.carrinhoPrecos[this.index] = Number(roupa1.calcularValorTotal().valueOf());
+                    this.index++;
+                    console.log("".concat(roupa1.nome, " adicionado(a) ao carrinho."));
                     pausa = readlineSync.question("");
                     break;
                 case 4:
-                    this.opcaoMenuPrincipal();
                     break;
                 default:
-                    console.log("opcao invalida!");
-                    setTimeout(function () { }, 1500);
                     break;
             }
         }
+        this.opcaoMenuPrincipal();
     };
     MenuPrincipal.prototype.verCarrinho = function () {
         console.clear();
-        console.log("produto/preco");
-        for (var index = 0; index < this.carrinho.length; index++) {
-            console.log("".concat(this.carrinho[index], " x").concat(this.quantidadeItem1, ": ").concat(alimento1.calcularValorTotal().valueOf() * this.quantidadeItem1));
+        console.log("CARRINHO:");
+        for (var i = 0; i < this.carrinho.length; i++) {
+            console.log("".concat(this.carrinho[i], "    | valor: ").concat(this.carrinhoPrecos[i]));
         }
-        var pausa = readlineSync.question("");
+        var soma = 0;
+        for (var i = 0; i < this.carrinhoPrecos.length; i++) {
+            soma += this.carrinhoPrecos[i];
+        }
+        console.log("\n valor total: ".concat(soma));
+        var pausa = readlineSync.question("digite enter para voltar:");
+        this.opcaoMenuPrincipal();
     };
     MenuPrincipal.prototype.pagar = function () {
+        console.clear();
+        var soma = 0;
+        for (var i = 0; i < this.carrinhoPrecos.length; i++) {
+            soma += this.carrinhoPrecos[i];
+        }
+        console.log("valor total a pagar: ".concat(soma, "\n"));
+        console.log("1- Dinheiro.");
+        console.log("2- Cartao de Credito.");
+        console.log("3- Pix.");
+        console.log("4- Cancelar");
+        new MenuPagamento_1.MenuPagamento(Number(readlineSync.question("\nselecionar opcao:"))).pagar();
     };
     return MenuPrincipal;
 }());
