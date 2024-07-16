@@ -8,7 +8,6 @@ var Alimentos = /** @class */ (function () {
         this.peso = peso;
     }
     Alimentos.prototype.calcularValorTotal = function () {
-        this.preco = this.peso;
         return this.preco;
     };
     return Alimentos;

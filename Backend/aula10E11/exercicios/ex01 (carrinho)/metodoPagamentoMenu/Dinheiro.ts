@@ -6,6 +6,5 @@ export class Dinheiro implements MetodosDePagamento {
     pagar(): void {
         console.log("as compras foram pagas em dinheiro");
         new MenuPrincipal().carrinho = [];
-        new MenuPrincipal().carrinhoPrecos = [];
     }
 }

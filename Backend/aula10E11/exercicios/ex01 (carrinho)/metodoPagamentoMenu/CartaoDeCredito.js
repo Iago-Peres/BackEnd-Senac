@@ -8,7 +8,6 @@ var CartaoDeCredito = /** @class */ (function () {
     CartaoDeCredito.prototype.pagar = function () {
         console.log("as compras foram pagas com cartao de credito");
         new MenuPrincipal_1.MenuPrincipal().carrinho = [];
-        new MenuPrincipal_1.MenuPrincipal().carrinhoPrecos = [];
     };
     return CartaoDeCredito;
 }());

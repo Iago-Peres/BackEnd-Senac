@@ -3,11 +3,11 @@ import { Alimentos } from "../produtos/Alimentos";
 import { Eletronicos } from "../produtos/Eletronicos";
 import { Roupas } from "../produtos/Roupas";
 import { MenuPagamento } from "../metodoPagamentoMenu/MenuPagamento";
+import { Produto } from "../produtos/Produto";
 
 export class MenuPrincipal {
-    carrinhoIndex: number = 0;
-    carrinho: string[] = [];
-    carrinhoPrecos: number[] = [];
+    carrinho: Produto[] = [];
+    valorTotal:number;
     index: number = 0;
 
     constructor() {
@@ -55,22 +55,19 @@ export class MenuPrincipal {
             opcaoCompra = Number(readlineSync.question("selecionar produto:"));
             switch (opcaoCompra) {
                 case 1:
-                    this.carrinho[this.index] = alimento1.nome;
-                    this.carrinhoPrecos[this.index] = Number(alimento1.calcularValorTotal().valueOf());
+                    this.carrinho[this.index] = alimento1;
                     this.index++
                     console.log(`${alimento1.nome} adicionado(a) ao carrinho.`);
                     let pausa = readlineSync.question("");
                     break;
                 case 2:
-                    this.carrinho[this.index] = eletronico1.nome;
-                    this.carrinhoPrecos[this.index] = Number(eletronico1.calcularValorTotal().valueOf());
+                    this.carrinho[this.index] = eletronico1;
                     this.index++
                     console.log(`${eletronico1.nome} adicionado(a) ao carrinho.`);
                     pausa = readlineSync.question("");
                     break;
                 case 3:
-                    this.carrinho[this.index] = roupa1.nome;
-                    this.carrinhoPrecos[this.index] = Number(roupa1.calcularValorTotal().valueOf());
+                    this.carrinho[this.index] = roupa1;
                     this.index++
                     console.log(`${roupa1.nome} adicionado(a) ao carrinho.`);
                     pausa = readlineSync.question("");
@@ -88,13 +85,12 @@ export class MenuPrincipal {
         console.clear();
         console.log("CARRINHO:");
         for (let i = 0; i < this.carrinho.length; i++) {
-            console.log(`${this.carrinho[i]}    | valor: ${this.carrinhoPrecos[i]}`)
+            console.log(`${this.carrinho[i].nome}    | valor: ${this.carrinho[i].calcularValorTotal()}`)
         }
-        let soma: number = 0;
-        for (let i = 0; i < this.carrinhoPrecos.length; i++) {
-            soma += this.carrinhoPrecos[i];
+        for (let i = 0; i < this.carrinho.length; i++) {
+            this.valorTotal += this.carrinho[i].calcularValorTotal();
         }
-        console.log(`\n valor total: ${soma}`)
+        console.log(`\n valor total: ${this.valorTotal}`)
 
         let pausa = readlineSync.question("digite enter para voltar:");
         this.opcaoMenuPrincipal();
@@ -102,11 +98,7 @@ export class MenuPrincipal {
 
     pagar() {
         console.clear();
-        let soma: number = 0;
-        for (let i = 0; i < this.carrinhoPrecos.length; i++) {
-            soma += this.carrinhoPrecos[i];
-        }
-        console.log(`valor total a pagar: ${soma}\n`)
+        console.log(`valor total a pagar: ${this.valorTotal}\n`)
 
         console.log("1- Dinheiro.");
         console.log("2- Cartao de Credito.");

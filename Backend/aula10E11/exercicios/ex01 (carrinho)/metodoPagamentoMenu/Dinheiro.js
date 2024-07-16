@@ -8,7 +8,6 @@ var Dinheiro = /** @class */ (function () {
     Dinheiro.prototype.pagar = function () {
         console.log("as compras foram pagas em dinheiro");
         new MenuPrincipal_1.MenuPrincipal().carrinho = [];
-        new MenuPrincipal_1.MenuPrincipal().carrinhoPrecos = [];
     };
     return Dinheiro;
 }());

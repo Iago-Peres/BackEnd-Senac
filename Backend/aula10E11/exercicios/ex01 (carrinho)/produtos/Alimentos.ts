@@ -13,7 +13,6 @@ export class Alimentos implements Produto{
     }
 
     calcularValorTotal(): number {
-        this.preco = this.peso;
         return this.preco;
     }
 

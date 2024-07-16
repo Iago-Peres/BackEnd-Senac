@@ -8,7 +8,6 @@ var Pix = /** @class */ (function () {
     Pix.prototype.pagar = function () {
         console.log("as compras foram pagas com pix");
         new MenuPrincipal_1.MenuPrincipal().carrinho = [];
-        new MenuPrincipal_1.MenuPrincipal().carrinhoPrecos = [];
     };
     return Pix;
 }());
