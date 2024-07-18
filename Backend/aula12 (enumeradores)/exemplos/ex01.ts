@@ -1,3 +1,5 @@
+import * as readlineSync from "readline-sync";
+
 enum DiasDaSemana {
     Segunda,
     Terca,
@@ -10,7 +12,7 @@ enum DiasDaSemana {
 
 //console.log(DiasDaSemana); //Saida: 0
 
-function diaMensagem(dia: DiasDaSemana): string {
+function diaMensagem(dia: DiasDaSemana = readlineSync.question("")): string {
     switch (dia) {
         case DiasDaSemana.Segunda:
             return "comeca a semana";

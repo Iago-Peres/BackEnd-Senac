@@ -1,3 +1,6 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var readlineSync = require("readline-sync");
 var DiasDaSemana;
 (function (DiasDaSemana) {
     DiasDaSemana[DiasDaSemana["Segunda"] = 0] = "Segunda";
@@ -10,6 +13,7 @@ var DiasDaSemana;
 })(DiasDaSemana || (DiasDaSemana = {}));
 //console.log(DiasDaSemana); //Saida: 0
 function diaMensagem(dia) {
+    if (dia === void 0) { dia = readlineSync.question(""); }
     switch (dia) {
         case DiasDaSemana.Segunda:
             return "comeca a semana";
