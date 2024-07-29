@@ -114,4 +114,6 @@ VALUES(9,5,'2020-02-06','2020-02-11',900);
 INSERT INTO alugueis_de_carros(carro_id,cliente_id,data_aluguel, data_devolucao, valor_total)
 VALUES(9,5,'2020-02-12','2020-02-17',900);
 
-SELECT cliente_id, carro_id, valor_total SUM FROM clientes INNER JOIN alugueis_de_carros; 
+SELECT cliente_id, SUM(valor_total) FROM `alugueis_de_carros` GROUP BY cliente_id; --Apresenta uma lista de todos os clientes e o total gasto por cliente em aluguéis de carros. 
+
+
