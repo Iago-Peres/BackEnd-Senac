@@ -116,4 +116,8 @@ VALUES(9,5,'2020-02-12','2020-02-17',900);
 
 SELECT cliente_id, SUM(valor_total) FROM `alugueis_de_carros` GROUP BY cliente_id; --Apresenta uma lista de todos os clientes e o total gasto por cliente em aluguéis de carros. 
 
-
+SELECT modelo,marca,ano,cor, COUNT(*)
+FROM carros_aluguel
+JOIN alugueis_de_carros 
+ON carros_aluguel.carro_id = alugueis_de_carros.carro_id
+GROUP BY carros_aluguel.carro_id;
