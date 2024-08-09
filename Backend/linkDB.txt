@@ -1,2 +1,34 @@
 https://painel.alunostds.dev.br/
 
+
+
+
+DELIMITER //
+
+CREATE PROCEDURE AumentarSalario(
+    IN dep_id INT,
+    IN percentual DECIMAL(5,2)
+)
+BEGIN
+    UPDATE cargos 
+    SET salario = salario + (salario * (percentual / 100))
+    WHERE departamento_id = dep_id;
+END //
+
+DELIMITER ;
+
+----------------------------------------------------------------------
+
+DELIMITER //
+
+CREATE PROCEDURE  DiminuirSalario(
+    IN depart_id INT,
+    IN percentual DECIMAL(5,2)
+)
+BEGIN
+    UPDATE cargos
+    SET salario = salario - (salario * (percentual / 100))
+	WHERE depart_id = departamento_id;
+END //
+
+DELIMITER ;
