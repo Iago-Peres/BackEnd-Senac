@@ -1,0 +1,33 @@
+body{
+    background-color: darkgray;
+    padding: 100px;
+}
+
+div{
+    background-color: slategray;
+    font-family:monospace;
+    font-size: large;
+    text-align: center;
+    margin-left: 600px;
+    width: 500px;
+    height: 250px;
+    border-radius: 50px;
+}
+
+button{
+    background-color: rgb(3, 3, 7);
+    color: azure;
+    margin-top: 50px;
+    border-radius: 10px;
+    width: 100px;
+    height: 30px;
+}
+button:hover{
+    background-color: rgb(1, 241, 109);
+    color: black;
+}
+
+input{
+    width: 33%;
+    padding-left: 20%;
+}
