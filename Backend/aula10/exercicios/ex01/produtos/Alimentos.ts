@@ -12,8 +12,8 @@ export class Alimentos implements Produto{
         this.peso = peso;
     }
 
-    calcularValorTotal(quantidade: number): number {
-        this.preco = this.peso * 1.5 
+    calcularValorTotal(): number {
+        this.preco = this.peso;
         return this.preco;
     }
 

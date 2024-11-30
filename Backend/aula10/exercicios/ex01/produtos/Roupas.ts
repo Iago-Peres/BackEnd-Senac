@@ -13,8 +13,8 @@ export class Roupas implements Produto {
         this.peso = peso;
     }
 
-    calcularValorTotal(quantidade: number): number {
-        let valorTotal: number = quantidade * this.preco;
+    calcularValorTotal(): number {
+        let valorTotal: number = this.preco;
         return valorTotal;
     }
 

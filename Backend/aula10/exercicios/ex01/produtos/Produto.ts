@@ -4,5 +4,5 @@ export interface Produto{
     nome:string;
     peso:number;
 
-    calcularValorTotal(quantidade:number):number;
+    calcularValorTotal():number;
 }

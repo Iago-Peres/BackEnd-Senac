@@ -13,8 +13,8 @@ export class Eletronicos implements Produto{
         this.peso = peso;
     }
     
-    calcularValorTotal(quantidade: number): number {
-        let valorTotal:number = this.preco * quantidade;
+    calcularValorTotal(): number {
+        let valorTotal:number = this.preco;
         return valorTotal;
     }
 
