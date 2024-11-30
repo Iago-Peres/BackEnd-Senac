@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+   
+    <div>
+        <h1>Gerenciamento de Usuarios</h1>
+        <h2>adicionar usuario</h2>
+        
+            <input type="text" id="nome" placeholder="nome">
+            <input type="text" id="email" placeholder="email">
+            <input type="text" id="senha" placeholder="senha">
+
+        <button onclick="adicionar(usuario)">Adicionar</button>
+    </div>
+
+    <div>
+        <h2>Lista de Usuarios</h2>
+        <ul id="Usuarios">
+
+        </ul>
+        <button onclick="obterUsuarios()">Atualizar</button>
+    </div>
+
+    <script src="./scripts/script.js"></script>
+</body>
+</html>

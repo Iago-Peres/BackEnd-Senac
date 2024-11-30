@@ -1,12 +1,10 @@
 import { MetodosDePagamento } from "./MetodosDePagamento";
 import { MenuPrincipal } from "../menu/MenuPrincipal";
 
-
-export class CartaoDeCredito implements MetodosDePagamento {
+export class Dinheiro implements MetodosDePagamento {
 
     pagar(): void {
-        console.log("as compras foram pagas com cartao de credito");
+        console.log("as compras foram pagas em dinheiro");
         new MenuPrincipal().carrinho = [];
-        new MenuPrincipal().carrinhoPrecos = [];
     }
 }
